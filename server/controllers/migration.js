@@ -4,7 +4,7 @@ module.exports = ({ strapi }) => ({
   async index(ctx) {
     try {
       const result = await strapi
-        .plugin('image-migration')
+        .plugin('strapi-migrate-to-cloudflare-r2')
         .service('migration')
         .migrateImages();
 
