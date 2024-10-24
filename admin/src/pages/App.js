@@ -12,27 +12,18 @@ const App = () => {
 
   const handleMigrate = async () => {
     setLoading(true);
-    const CancelToken = axios.CancelToken;
-    const source = CancelToken.source();
+
     try {
+      const response = await axiosInstance.post(`/${pluginId}/migrate-images`);
 
-      const response = await axiosInstance.post(`/${pluginId}/migrate-images`, {
-        cancelToken: source.token,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const data = await response;
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Помилка запиту');
-      }
-
-      toggleNotification({ type: 'success', message: data.message });
+      toggleNotification({ type: 'success', message: response.data.message });
     } catch (error) {
-      toggleNotification({ type: 'warning', message: `Помилка міграції: ${error.message}` });
+      toggleNotification({
+        type: 'warning',
+        message: `Помилка міграції: ${
+          error.response?.data?.error?.message || error.message
+        }`,
+      });
     } finally {
       setLoading(false);
     }

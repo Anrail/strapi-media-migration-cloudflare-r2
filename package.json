@@ -1,12 +1,16 @@
 {
-  "name": "image-migration",
-  "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "name": "strapi-media-migration-cloudflare-r2",
+  "version": "1.0.0",
+  "description": "Strapi plugin to migrate media to Cloudflare R2",
   "strapi": {
-    "name": "image-migration",
-    "description": "Description of Image Migration plugin",
+    "name": "strapi-media-migration-cloudflare-r2",
+    "description": "Plugin to migrate media to Cloudflare R2",
     "kind": "plugin",
     "displayName": "Image Migration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anrail/strapi-media-migration-cloudflare-r2.git"
   },
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
