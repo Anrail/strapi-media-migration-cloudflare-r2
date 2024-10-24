@@ -20,7 +20,7 @@ const App = () => {
     } catch (error) {
       toggleNotification({
         type: 'warning',
-        message: `Помилка міграції: ${
+        message: `Migration error: ${
           error.response?.data?.error?.message || error.message
         }`,
       });
@@ -32,12 +32,12 @@ const App = () => {
   return (
     <>
       <BaseHeaderLayout
-        title="Міграція зображень"
-        subtitle="Завантажте всі зображення на Cloudflare R2"
+        title="Media migration R2"
+        subtitle="Migrate all media to Cloudflare R2"
       />
       <ContentLayout>
         <Button onClick={handleMigrate} loading={loading}>
-          Запустити міграцію зображень
+          Run all media migration
         </Button>
       </ContentLayout>
     </>

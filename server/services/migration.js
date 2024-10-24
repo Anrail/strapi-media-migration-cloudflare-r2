@@ -10,7 +10,7 @@ module.exports = {
         strapi.log.info(`Знайдено ${files.length} файлів для міграції.`);
 
         for (const file of files) {
-            // Перевіряємо, чи файл вже мігрував
+            // Check if the file is already migrated
 
             if (file.provider === 'strapi-provider-cloudflare-r2' || file.provider === 'cloudflare-r2') {
                 continue;
@@ -19,7 +19,7 @@ module.exports = {
             const filePath = path.join(strapi.dirs.static.public, file.url);
 
             if (!fs.existsSync(filePath)) {
-                strapi.log.warn(`Файл не знайдено: ${filePath}`);
+                strapi.log.warn(`File not found: ${filePath}`);
                 continue;
             }
 
@@ -37,7 +37,7 @@ module.exports = {
                 });
 
                 if (uploadedFiles && uploadedFiles.length > 0) {
-                    // Оновлюємо запис файлу
+                    // Update the file with the new URL
 
                     const status = await strapi.entityService.update('plugin::upload.file', file.id, {
                         data: {
@@ -46,16 +46,17 @@ module.exports = {
                             formats: uploadedFiles[0].formats,
                         },
                     });
+                    // Delete the local copy of the file in database
                     await strapi.entityService.delete('plugin::upload.file', uploadedFiles[0].id);
 
-                    strapi.log.info(`Файл мігровано: ${file.name}`);
+                    strapi.log.info(`File migrated: ${file.name}`);
                 }
             } catch (error) {
-                strapi.log.error(`Помилка міграції файлу ${file.name}: ${error.message}`);
+                strapi.log.error(`File migration error ${file.name}: ${error.message}`);
             }
         }
-        strapi.log.info('Міграція зображень завершена.');
+        strapi.log.info('Migration done.');
 
-        return { message: 'Міграція завершена 🚀' };
+        return { message: 'All media migrated 🚀' };
     },
 };
