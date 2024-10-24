@@ -1,9 +1,9 @@
 {
-  "name": "strapi-media-migration-cloudflare-r2",
+  "name": "strapi-migrate-to-cloudflare-r2",
   "version": "1.0.0",
   "description": "Strapi plugin to migrate media to Cloudflare R2",
   "strapi": {
-    "name": "strapi-media-migration-cloudflare-r2",
+    "name": "strapi-migrate-to-cloudflare-r2",
     "description": "Plugin to migrate media to Cloudflare R2",
     "kind": "plugin",
     "displayName": "Image Migration"
