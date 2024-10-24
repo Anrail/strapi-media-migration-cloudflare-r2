@@ -13,10 +13,6 @@ npm install strapi-migrate-to-cloudflare-r2 --save
 pnpm add strapi-migrate-to-cloudflare-r2
 ```
 
-Add the following configuration to `./config/plugins.js`
-```js
-
-```
 
 ## Usage
-[![Screenshot-9.jpg](https://i.postimg.cc/LX3dyHm7/Screenshot-9.jpg)](https://postimg.cc/G8tStn8J)
+[![Screenshot-12.jpg](https://i.postimg.cc/q7sGPqWk/Screenshot-12.jpg)](https://postimg.cc/R30ffSM8)
