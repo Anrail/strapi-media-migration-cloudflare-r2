@@ -6,15 +6,15 @@ module.exports = [
     path: '/migrate-images',
     handler: 'migration.index',
     config: {
-      policies: [],
-    },
+      policies: []
+    }
   },
   {
     method: 'POST',
     path: '/change-domain',
-    handler: 'change-domain.index',
+    handler: 'changeDomain.index',
     config: {
-      policies: [],
-    },
-  },
+      policies: []
+    }
+  }
 ];
