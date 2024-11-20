@@ -5,7 +5,7 @@ module.exports = ({ strapi }) => ({
     try {
       const result = await strapi
         .plugin('strapi-migrate-to-cloudflare-r2')
-        .service('change-domain')
+        .service('changeDomain')
         .changeCDNDomain();
 
       ctx.body = result;
