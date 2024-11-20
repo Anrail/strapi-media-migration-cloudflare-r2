@@ -9,4 +9,12 @@ module.exports = [
       policies: [],
     },
   },
+  {
+    method: 'POST',
+    path: '/change-domain',
+    handler: 'change-domain.index',
+    config: {
+      policies: [],
+    },
+  },
 ];

@@ -29,6 +29,25 @@ const App = () => {
     }
   };
 
+  const handleDomainChanger = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axiosInstance.post(`/${pluginId}/change-domain`);
+
+      toggleNotification({ type: 'success', message: response.data.message });
+    } catch (error) {
+      toggleNotification({
+        type: 'warning',
+        message: `Domain changer error: ${
+          error.response?.data?.error?.message || error.message
+        }`,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <BaseHeaderLayout
@@ -38,6 +57,9 @@ const App = () => {
       <ContentLayout>
         <Button onClick={handleMigrate} loading={loading}>
           Run all media migration
+        </Button>
+        <Button onClick={handleDomainChanger} loading={loading}>
+          Run all media domain changer
         </Button>
       </ContentLayout>
     </>
