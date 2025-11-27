@@ -48,6 +48,25 @@ const App = () => {
     }
   };
 
+  const handleReuploadImages = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axiosInstance.post(`/${pluginId}/reupload-images`);
+
+      toggleNotification({ type: 'success', message: response.data.message });
+    } catch (error) {
+      toggleNotification({
+        type: 'warning',
+        message: `Reupload error: ${
+          error.response?.data?.error?.message || error.message
+        }`,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <BaseHeaderLayout
@@ -58,8 +77,13 @@ const App = () => {
         <Button onClick={handleMigrate} loading={loading}>
           Run all media migration
         </Button>
-        <Button onClick={handleDomainChanger} loading={loading}>
+
+        <Button onClick={handleDomainChanger} loading={loading} style={{ marginTop: '16px' }}>
           Run all media domain changer
+        </Button>
+
+        <Button onClick={handleReuploadImages} loading={loading} style={{ marginTop: '16px' }}>
+          Reupload all images
         </Button>
       </ContentLayout>
     </>

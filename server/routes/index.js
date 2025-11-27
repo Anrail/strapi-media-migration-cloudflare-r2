@@ -16,5 +16,13 @@ module.exports = [
     config: {
       policies: []
     }
+  },
+  {
+    method: 'POST',
+    path: '/reupload-images',
+    handler: 'reupload.index',
+    config: {
+      policies: []
+    }
   }
 ];

@@ -1,6 +1,6 @@
 {
   "name": "strapi-migrate-to-cloudflare-r2",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Strapi plugin to migrate media to Cloudflare R2",
   "strapi": {
     "name": "strapi-migrate-to-cloudflare-r2",
@@ -13,11 +13,12 @@
     "url": "git+https://github.com/anrail/strapi-migrate-to-cloudflare-r2.git"
   },
   "dependencies": {
-    "strapi-provider-cloudflare-r2": "^0.3.0",
     "@strapi/design-system": "^1.6.3",
     "@strapi/helper-plugin": "^4.6.0",
     "@strapi/icons": "^1.6.3",
-    "prop-types": "^15.7.2"
+    "aws-sdk": "^2.1692.0",
+    "prop-types": "^15.7.2",
+    "strapi-provider-cloudflare-r2": "^0.3.0"
   },
   "devDependencies": {
     "react": "^18.2.0",
